@@ -17,7 +17,7 @@ set -g prefix C-a
 bind C-a send-prefix
 
 # for nested tmux sessions
-bind-key a send-prefix
+# bind-key a send-prefix
 
 # Activity Monitoring
 setw -g monitor-activity off
@@ -36,9 +36,9 @@ unbind =
 bind = select-layout tiled
 
 # cycle through panes
-# unbind C-a
-# unbind o # this is the default key for cycling panes
-# bind ^A select-pane -t:.+
+unbind C-a
+unbind o # this is the default key for cycling panes
+bind ^A select-pane -t:.+
 
 # make window/pane index start with 1
 set -g base-index 1
@@ -59,8 +59,8 @@ bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
 bind N new-window
 
 # split window and fix path for tmux 1.9
-bind | split-window -h -c "#{pane_current_path}"
-bind - split-window -v -c "#{pane_current_path}"
+bind - split-window -h -c "#{pane_current_path}"
+bind | split-window -v -c "#{pane_current_path}"
 
 # synchronize all panes in a window
 bind y setw synchronize-panes
@@ -75,10 +75,10 @@ bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
 
 # Resize pane shortcuts
-bind -r H resize-pane -L 10
-bind -r J resize-pane -D 10
-bind -r K resize-pane -U 10
-bind -r L resize-pane -R 10
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
 
 # enable mouse support for switching panes/windows
 setw -g mouse on
