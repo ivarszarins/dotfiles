@@ -17,7 +17,7 @@ formulas=(
     fzf
     git
     'grep --with-default-names'
-    # highlight
+    highlight
     # hub
     markdown
     neovim/neovim/neovim
