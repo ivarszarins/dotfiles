@@ -2,12 +2,6 @@ source ~/.config/nvim/plugins.vim
 
 " Section General {{{
 
-" Abbreviations
-abbr funciton function
-abbr teh the
-abbr tempalte template
-abbr fitler filter
-
 set nocompatible            " not compatible with vi
 set autoread                " detect when a file is changed
 
@@ -21,9 +15,9 @@ let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 if (has('nvim'))
-	" show results of substition as they're happening
-	" but don't open a split
-	set inccommand=nosplit
+    " show results of substition as they're happening
+    " but don't open a split
+    set inccommand=nosplit
 endif
 
 " }}}
@@ -59,7 +53,7 @@ highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 
 set number                  " show line numbers
-" set relativenumber          " show relative line numbers
+set relativenumber          " show relative line numbers
 
 set wrap                    " turn on line wrapping
 set wrapmargin=8            " wrap lines when coming within n characters from side
@@ -95,7 +89,7 @@ set foldnestmax=10          " deepest fold is 10 levels
 set nofoldenable            " don't fold by default
 set foldlevel=1
 
-set clipboard=unnamed
+set clipboard=unnamed       " yank copies to system clipboard
 
 set ttyfast                 " faster redrawing
 set diffopt+=vertical
@@ -140,21 +134,29 @@ endif
 
 " set a map leader for more key combos
 let mapleader = ','
-
-" remap esc
-inoremap jk <esc>
+let maplocalleader = '\\'
 
 " wipout buffer
 nmap <silent> <leader>b :bw<cr>
 
+" Move to the next buffer 
+nmap <localleader>l :bnext<CR>
+
+"Move to the previous buffer 
+nmap <localleader>h :bprevious<CR>
+
 " shortcut to save
-nmap <leader>, :w<cr>
+nmap <leader>w :w<cr>
 
 " set paste toggle
 set pastetoggle=<leader>v
 
-" toggle paste mode
-" map <leader>v :set paste!<cr>
+" quick jump on location errors
+map <localleader>n :lnext<CR>
+map <localleader>p :lprev<CR>
+
+" open ack
+map <leader>a :Ack --ignore-dir=node_modules --ignore-dir=dist --ignore-dir=dist-systemjs --ignore-dir=tmp --ignore-dir=compiled --ignore-dir=app-inlined 
 
 " edit ~/.config/nvim/init.vim
 map <leader>ev :e! ~/.config/nvim/init.vim<cr>
@@ -174,14 +176,13 @@ nmap <leader>md :%!markdown --html4tags <cr>
 nmap <leader><space> :%s/\s\+$<cr>
 nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
 
-
 nmap <leader>l :set list!<cr>
 
 " Textmate style indentation
-vmap <leader>[ <gv
-vmap <leader>] >gv
-nmap <leader>[ <<
-nmap <leader>] >>
+" vmap <leader>[ <gv
+" vmap <leader>] >gv
+" nmap <leader>[ <<
+" nmap <leader>] >>
 
 " switch between current and last buffer
 nmap <leader>. <c-^>
@@ -189,10 +190,17 @@ nmap <leader>. <c-^>
 " enable . command in visual mode
 vnoremap . :normal .<cr>
 
+" Moves between splits, creates a split if there is none
 map <silent> <C-h> :call functions#WinMove('h')<cr>
 map <silent> <C-j> :call functions#WinMove('j')<cr>
 map <silent> <C-k> :call functions#WinMove('k')<cr>
 map <silent> <C-l> :call functions#WinMove('l')<cr>
+
+" Quick resize splits
+map <leader>h :vertical resize -5<CR>
+map <leader>l :vertical resize +5<CR>
+map <leader>j :resize -5<CR>
+map <leader>k :resize +5<CR>
 
 map <leader>wc :wincmd q<cr>
 
@@ -256,11 +264,14 @@ augroup END
 
 " Section Plugins {{{
 
+" AutoPairs
+let g:AutoPairsMapCh=0
+
 " FZF
 """""""""""""""""""""""""""""""""""""
 
 " Toggle NERDTree
-nmap <silent> <leader>k :NERDTreeToggle<cr>
+nmap <silent> <leader>d :NERDTreeToggle<cr>
 " expand to the path of the file in the current buffer
 nmap <silent> <leader>y :NERDTreeFind<cr>
 
@@ -334,8 +345,8 @@ let g:neomake_typescript_tsc_maker = {
 
 " airline options
 let g:airline_powerline_fonts=1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
