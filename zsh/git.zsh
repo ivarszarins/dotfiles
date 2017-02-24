@@ -1,5 +1,6 @@
 # git aliases
 alias ga='git add'
+alias gc='git checkout'
 alias gb='git branch'
 alias gl='git pull'
 alias gp='git push'
