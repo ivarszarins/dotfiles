@@ -13,15 +13,15 @@ formulas=(
     'macvim --with-override-system-vim'
     ack
     diff-so-fancy
-    dnsmasq
+    # dnsmasq
     fzf
     git
     'grep --with-default-names'
-    highlight
-    hub
+    # highlight
+    # hub
     markdown
     neovim/neovim/neovim
-    nginx
+    # nginx
     reattach-to-user-namespace
     the_silver_searcher
     tmux
