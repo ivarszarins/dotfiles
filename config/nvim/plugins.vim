@@ -26,6 +26,7 @@ Plug 'AndrewRadev/splitjoin.vim' " single/multi line code handler: gS - split on
 Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
 Plug 'benmills/vimux' " tmux integration for vim
 Plug 'christoomey/vim-sort-motion' " sort stuff with gs, e.g. gsip
+Plug 'christoomey/vim-tmux-navigator' " navigate tmux panes exaclty as vim panes
 Plug 'editorconfig/editorconfig-vim' " .editorconfig support
 Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
 Plug 'garbas/vim-snipmate' " snippet manager
@@ -49,6 +50,7 @@ Plug 'tpope/vim-vinegar' " netrw helper
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'vim-scripts/matchit.zip' " extended % matching
+Plug 'vim-syntastic/syntastic'
 
 " html / templates
 Plug 'mattn/emmet-vim', { 'for': 'html' } " emmet support for vim - easily create markdup wth CSS-like syntax

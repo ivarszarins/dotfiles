@@ -41,7 +41,7 @@ let g:onedark_termcolors=16
 let g:onedark_terminal_italics=1
 
 syntax on
-" set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
+" set t_Co=256              " Explicitly tell vim that the terminal supports 256 colors
 colorscheme onedark         " Set the colorscheme
 
 " make the highlighting of tabs and other non-text less annoying
@@ -102,8 +102,11 @@ set noshowmode              " don't show which mode disabled for PowerLine
 set wildmode=list:longest   " complete files like a shell
 set scrolloff=3             " lines of text around cursor
 set shell=$SHELL
-set cmdheight=1             " command bar height
+set cmdheight=2             " command bar height
 set title                   " set terminal title
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " Searching
 set ignorecase              " case insensitive searching
@@ -124,8 +127,8 @@ set t_vb=
 set tm=500
 
 if has('mouse')
-	set mouse=a
-	" set ttymouse=xterm2
+    set mouse=a
+    " set ttymouse=xterm2
 endif
 
 " }}}
@@ -134,7 +137,7 @@ endif
 
 " set a map leader for more key combos
 let mapleader = ','
-let maplocalleader = '\\'
+let maplocalleader = "\\"
 
 " wipout buffer
 nmap <silent> <leader>b :bw<cr>
@@ -190,11 +193,11 @@ nmap <leader>. <c-^>
 " enable . command in visual mode
 vnoremap . :normal .<cr>
 
-" Moves between splits, creates a split if there is none
-map <silent> <C-h> :call functions#WinMove('h')<cr>
-map <silent> <C-j> :call functions#WinMove('j')<cr>
-map <silent> <C-k> :call functions#WinMove('k')<cr>
-map <silent> <C-l> :call functions#WinMove('l')<cr>
+" Quick jumping between splits
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
 
 " Quick resize splits
 map <leader>h :vertical resize -5<CR>
@@ -264,6 +267,10 @@ augroup END
 
 " Section Plugins {{{
 
+" Syntastic
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
 " AutoPairs
 let g:AutoPairsMapCh=0
 
@@ -278,6 +285,9 @@ nmap <silent> <leader>y :NERDTreeFind<cr>
 let NERDTreeShowHidden=1
 let NERDTreeDirArrowExpandable = '▷'
 let NERDTreeDirArrowCollapsible = '▼'
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 let g:fzf_layout = { 'down': '~25%' }
 
@@ -345,8 +355,8 @@ let g:neomake_typescript_tsc_maker = {
 
 " airline options
 let g:airline_powerline_fonts=1
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
