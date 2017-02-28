@@ -139,6 +139,9 @@ endif
 let mapleader = ','
 let maplocalleader = "\\"
 
+" Turn off search highlight till next search
+nnoremap <leader>/ :noh<cr>
+
 " wipout buffer
 nmap <silent> <leader>b :bw<cr>
 
@@ -179,7 +182,7 @@ nmap <leader>md :%!markdown --html4tags <cr>
 nmap <leader><space> :%s/\s\+$<cr>
 nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
 
-nmap <leader>l :set list!<cr>
+nmap <leader>o :set list!<cr>
 
 " Textmate style indentation
 " vmap <leader>[ <gv
@@ -219,9 +222,6 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 nnoremap <silent> ^ g^
 nnoremap <silent> $ g$
-
-" search for word under the cursor
-nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
 " inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
