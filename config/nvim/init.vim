@@ -64,7 +64,7 @@ set autoindent              " automatically set indent of new line
 set smartindent
 
 " toggle invisible characters
-set list
+" set list
 set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 
@@ -81,7 +81,8 @@ set tabstop=2               " the visible width of tabs
 set softtabstop=2           " edit as if the tabs are 4 characters wide
 set shiftwidth=2            " number of spaces to use for indent and unindent
 set shiftround              " round indent to a multiple of 'shiftwidth'
-set completeopt+=longest
+set completeopt=longest,menuone,preview
+set splitbelow							" Move preview window to bottom of the screen
 
 " code folding settings
 set foldmethod=syntax       " fold based on indent
@@ -171,6 +172,8 @@ map <leader>eg :e! ~/.gitconfig<cr>
 
 " clear highlighted search
 noremap <space> :set hlsearch! hlsearch?<cr>
+
+imap <C-s> :<Plug>snipMateTrigger<cr>
 
 " activate spell-checking alternatives
 nmap ;s :set invspell spelllang=en<cr>

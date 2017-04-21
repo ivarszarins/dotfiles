@@ -21,15 +21,17 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'joshdick/onedark.vim'
 
 " utilities
+" Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
+Plug 'OmniSharp/omnisharp-vim' "For c# completion
+Plug 'SirVer/ultisnips' " snippet engine
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 Plug 'AndrewRadev/splitjoin.vim' " single/multi line code handler: gS - split one line into multiple, gJ - combine multiple lines into one
 Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
+Plug 'Valloric/YouCompleteMe'
 Plug 'benmills/vimux' " tmux integration for vim
 Plug 'christoomey/vim-sort-motion' " sort stuff with gs, e.g. gsip
 Plug 'christoomey/vim-tmux-navigator' " navigate tmux panes exaclty as vim panes
 Plug 'editorconfig/editorconfig-vim' " .editorconfig support
-Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
-Plug 'garbas/vim-snipmate' " snippet manager
 Plug 'jiangmiao/auto-pairs' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'neomake/neomake' " neovim replacement for syntastic using neovim's job control functonality

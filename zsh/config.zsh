@@ -29,5 +29,9 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 
+# make reverse search work
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
 fpath=($ZSH/functions $fpath)
 autoload -U $ZSH/functions/*(:t)

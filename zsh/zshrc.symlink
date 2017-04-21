@@ -68,3 +68,12 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+export CLICOLOR=1
+
+export HTTP_PROXY=http://gia.sebank.se:8080/
+export HTTPS_PROXY=http://gia.sebank.se:8080/
+export NO_PROXY=.sebank.se
